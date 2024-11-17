@@ -11,14 +11,6 @@ XOR_GPIO :: cast(^u32)(uintptr(0xd000001c))
 write :: i.volatile_store
 read :: i.volatile_load
 
-// foreign _ {
-//     @(link_name = "__$startup_runtime")
-//     _startup_runtime :: proc "odin" () ---
-//     @(link_name = "__$cleanup_runtime")
-//     _cleanup_runtime :: proc "odin" () ---
-//
-// }
-
 @(export, link_name = "_main")
 _main :: proc "contextless" () {
     write(IOBANK0_RESET, 1 << 5)
